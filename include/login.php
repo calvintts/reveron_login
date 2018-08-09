@@ -31,7 +31,7 @@
             $_SESSION['firstname'] = $row['user_firstname'];
             $_SESSION['lastname'] = $row['user_lastname'];
             $_SESSION['org'] = $row['user_org'];
-            header("Location: ../index.php?login=success");
+            header("Location: content.php");
             exit();
           }
         }

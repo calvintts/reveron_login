@@ -1,5 +1,9 @@
 <!doctype html>
-<?php session_start(); ?>
+<?php session_start();
+  if(isset($_SESSION['email'])){
+    $loggedin = true;
+  }
+?>
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,12 +18,19 @@
     #double_input{
       margin-bottom:0px;
     }
+
+    <?php if($loggedin = true){
+      echo "nav.row,.tab-content{
+        display:none;
+      }
+      ";
+    }?>
     </style>
   </head>
   <body>
     <div class="container-fluid">
       <a href=<?php echo "index.php" ?>><img id="logo" class="col-md-8 offset-2" style="width:15%" src="./logo.png"/>
-      <nav>
+      <nav class="row">
         <div class="col-md-8 offset-2 nav nav-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-login" aria-selected="true">Login</a>
           <a class="nav-item nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-register" aria-selected="false">Register</a>
