@@ -5,28 +5,22 @@
   }
 ?>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>Register</title>
-    <style>
-    #logo{
-      margin-bottom: 15px;
-    }
-    #double_input{
-      margin-bottom:0px;
-    }
+  <?php include "content/header.php";?>
+  <style>
+  #logo{
+    margin-bottom: 15px;
+  }
+  #double_input required{
+    margin-bottom:0px;
+  }
 
-    <?php if($loggedin = true){
-      echo "nav.row,.tab-content{
-        display:none;
-      }
-      ";
-    }?>
-    </style>
-  </head>
+  <?php if($loggedin = true){
+    echo "nav.,.tab-content{
+      display:none;
+    }
+    ";
+  }?>
+  </style>
   <body>
     <div class="container-fluid">
       <a href=<?php echo "index.php" ?>><img id="logo" class="col-md-8 offset-2" style="width:15%" src="./logo.png"/>
@@ -48,19 +42,19 @@
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="email">Work email</label>
-                <input name="email" id="email" type="email" class="form-control" placeholder="example@reveron.com">
+                <input required name="email" id="email" type="email" class="form-control" placeholder="example@reveron.com">
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8 offset-2 form-group" id="double_input">
+              <div class="col-md-8 offset-2 form-group" id="double_input required">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <label for="">First Name</label>
-                    <input name="fname" id="fname" type="text" class="form-control">
+                    <input required name="fname" id="fname" type="text" class="form-control">
                   </div>
                   <div class="col-md-6 form-group">
                     <label for="">Last Name</label>
-                    <input name="lname" id="lname" type="text" class="form-control">
+                    <input required name="lname" id="lname" type="text" class="form-control">
                   </div>
                 </div>
               </div>
@@ -68,19 +62,19 @@
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="password">Password</label>
-                <input name="password" id="password" type="password" class="form-control">
+                <input required name="password" id="password" type="password" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="re_password">Comfirm Password</label>
-                <input name="re_password" id="re_password" type="password" class="form-control">
+                <input required name="re_password" id="re_password" type="password" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="org">Organization</label>
-                <input name="org" id="org" type="text" class="form-control">
+                <input required name="org" id="org" type="text" class="form-control">
               </div>
             </div>
             <div class="row">
@@ -349,13 +343,13 @@
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="email">Email</label>
-                <input name="login_email" id="login_email" type="email" class="form-control" placeholder="example@reveron.com">
+                <input required name="login_email" id="login_email" type="email" class="form-control" placeholder="example@reveron.com">
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="password">Password</label>
-                <input name="login_password" id="login_password" type="password" class="form-control">
+                <input required name="login_password" id="login_password" type="password" class="form-control">
               </div>
             </div>
             <div class="row">

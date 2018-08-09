@@ -12,26 +12,21 @@
       $result = mysqli_query($conn,$sql);
       $resultCheck = mysqli_num_rows($result);
       if($resultCheck<1){
-        header('Location: ../index.php#nav-login?login=error1');
+        header('Location: ../index.php?login=error1');
         exit();
       }else{
         if($row = mysqli_fetch_assoc($result)){
-          $hashed = password_hash($password,PASSWORD_BCRYPT);
-          if($password == $row['user_password'])
-            {$hashedPwdCheck = true;}
-          else{
-            $hashedPwdCheck = false;
-          }
+          $hashedPwdCheck = password_verify($password,$row['user_password']);
           if($hashedPwdCheck == false)
           {
-            header("Location: ../index.php?login=error2");
+            header("Location: ../index.php?login=passworderror");
             exit();
           }elseif($hashedPwdCheck == true){
             $_SESSION['email'] = $row['user_email'];
             $_SESSION['firstname'] = $row['user_firstname'];
             $_SESSION['lastname'] = $row['user_lastname'];
             $_SESSION['org'] = $row['user_org'];
-            header("Location: content.php");
+            header("Location: ../content/index.php");
             exit();
           }
         }
