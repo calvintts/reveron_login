@@ -1,4 +1,5 @@
 <!doctype html>
+<?php session_start(); ?>
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -10,11 +11,14 @@
     #logo{
       margin-bottom: 15px;
     }
+    #double_input{
+      margin-bottom:0px;
+    }
     </style>
   </head>
   <body>
     <div class="container-fluid">
-      <img id="logo" class="col-md-8 offset-2" style="width:15%" src="./logo.png"/>
+      <a href=<?php echo "index.php" ?>><img id="logo" class="col-md-8 offset-2" style="width:15%" src="./logo.png"/>
       <nav>
         <div class="col-md-8 offset-2 nav nav-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-login" aria-selected="true">Login</a>
@@ -23,7 +27,7 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade" id="nav-register" role="tab-panel" aria-labelledby="nav-home-tab">
-          <form class="form-group" action="index.php" method="post" autocomplete="off">
+          <form class="form-group" action="include/signup.php" method="post" autocomplete="off">
             <div class="row">
               <div class="col-md-8 offset-2">
                 <h3>Create your Profile</h3>
@@ -37,7 +41,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8 offset-2 form-group">
+              <div class="col-md-8 offset-2 form-group" id="double_input">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <label for="">First Name</label>
@@ -52,14 +56,26 @@
             </div>
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
+                <label for="password">Password</label>
+                <input name="password" id="password" type="password" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8 offset-2 form-group">
+                <label for="re_password">Comfirm Password</label>
+                <input name="re_password" id="re_password" type="password" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8 offset-2 form-group">
                 <label for="org">Organization</label>
                 <input name="org" id="org" type="text" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
-                <label for="countries">Country</label>
-                <select id="countries" name="countries" class="form-control">
+                <label for="country">Country</label>
+                <select id="country" name="country" class="form-control">
                 	<option value="United States">United States</option>
                 	<option value="United Kingdom">United Kingdom</option>
                 	<option value="Afghanistan">Afghanistan</option>
@@ -306,13 +322,13 @@
             </div>
             <div class="row">
               <div class="col-md-8 offset-2">
-                <button type="button" class="btn btn-primary">Sign Up</button>
+                <button type="submit" name="register" class="btn btn-primary">Register</button>
               </div>
             </div>
           </form>
         </div>
         <div class="tab-pane fade show active" id="nav-login" role="tab-panel" aria-labelledby="nav-home-tab">
-          <form class="form-group" action="index.php" method="post" autocomplete="off">
+          <form class="form-group" action="include/login.php" method="POST" autocomplete="off">
             <div class="row">
               <div class="col-md-8 offset-2">
                 <h3>Log In to Your Account</h3>
@@ -322,18 +338,18 @@
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="email">Email</label>
-                <input name="email" id="email" type="email" class="form-control" placeholder="example@reveron.com">
+                <input name="login_email" id="login_email" type="email" class="form-control" placeholder="example@reveron.com">
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-2 form-group">
                 <label for="password">Password</label>
-                <input name="password" id="password" type="password" class="form-control">
+                <input name="login_password" id="login_password" type="password" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="col-md-8 offset-2">
-                <button type="button" name="login" class="btn btn-primary">Log In</button>
+                <button type="submit" name="login" class="btn btn-primary">Log In</button>
               </div>
             </div>
           </form>
